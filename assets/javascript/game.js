@@ -2,30 +2,30 @@ var rpgGame = {
 
     obiWan:
     {
-        healthPoints: 120,
-        attackPower: 6,
-        counterAttackPower: 8,
+        hp: 150,
+        attackPower: 8,
+        counterAttackPower: 9,
     },
 
     maul:
     {
-        healthPoints: 100,
-        attackPower: 6,
-        counterAttackPower: 8,
+        hp: 120,
+        attackPower: 9,
+        counterAttackPower: 7,
     },
 
     sideous:
     {
-        healthPoints: 180,
+        hp: 200,
         attackPower: 6,
-        counterAttackPower: 8,
+        counterAttackPower: 15,
     },
 
     duku:
     {
-        healthPoints: 150,
-        attackPower: 6,
-        counterAttackPower: 8,
+        hp: 180,
+        attackPower: 7,
+        counterAttackPower: 12,
     },
     
     gameRunning: false,
@@ -35,13 +35,24 @@ var rpgGame = {
     
     
     attackEnemy: function (player, enemy) {
-        enemy.healthPoints -= (player.attackPower * this.attackCount);
-        player.healthPoints -= enemy.counterAttackPower;
+        enemy.hp -= (player.attackPower * this.attackCount);
+        player.hp -= enemy.counterAttackPower;
         this.attackCount++;
-        //check hp of player for loss and enemy for win
+
+        // call to win/loss checker function
+
+        //update the hp values of the character cards on the page
     },
     
-// win/loss checker function
+// win condition checker: check hp of player for loss and enemy for win
+
+    checkWinLoss: function (player, enemy) {
+        if(player.hp <= 0) {
+            gameRunning = false;
+
+        }
+
+    }
 
 // game initializer function, set all characters HP to full values restart the attack couter, set game running state to true.
 
@@ -60,6 +71,7 @@ var rpgGame = {
     },
 
     // jQuery stuff to look for user to click the desired character to play and
+
     // set that character as the player character move all other characters to fight selection div.
 
     if (this.gameRunning == false && this.playerCharSelected == false) {
@@ -87,7 +99,6 @@ var rpgGame = {
     };
 
 };
-
 
 // jQuery stull looking for clicks on enemy icons to start the battle
 

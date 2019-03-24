@@ -1,6 +1,17 @@
-.container {
-    
+/* .container {
+
+} */
+
+.list-group-item, .card-title {
+    text-align: center;
+
 }
+
+.card {
+    width: 20%;
+
+}
+
 .playerCharacter {
     color: black;
     background-color: green;
