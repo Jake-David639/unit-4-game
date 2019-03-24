@@ -1,0 +1,17 @@
+.container {
+    
+}
+.playerCharacter {
+    color: black;
+    background-color: green;
+}
+
+.enemyCharacter {
+    color: black;
+    background-color: red;
+}
+
+.defender {
+    background-color: black;
+    color: antiquewhite;
+}
